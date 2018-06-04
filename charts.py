@@ -35,7 +35,7 @@ def create_cpu_chart(session, measurement_times):
         cpu_measurements[measurement_time] = total
     chart = pygal.Line(
         x_label_rotation=20,
-        x_labels_major_every=60,
+        x_labels_major_count=10,
         show_minor_x_labels=False,
     )
     chart.x_labels = [
