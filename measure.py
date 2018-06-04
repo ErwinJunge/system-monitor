@@ -69,7 +69,7 @@ def processes(measurement):
             )
         ProcessIONice(
             process=process,
-            ioclass=item.info['ionice'].ioclass,
+            ioclass=int(item.info['ionice'].ioclass),
             value=item.info['ionice'].value,
         )
         if item.info['io_counters'] is not None:
