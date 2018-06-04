@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from models import (
     Measurement,
     CPUUtilization,
 )
+from engine import engine
 import pygal
 
 
@@ -57,7 +57,6 @@ def create_cpu_chart(session, measurement_times):
 
 
 def run():
-    engine = create_engine('sqlite:///data.db')
     Session = sessionmaker(bind=engine)
     session = Session()
     measurement_times = get_measurement_times(session)

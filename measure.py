@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from models import (
     Base,
@@ -15,6 +14,7 @@ from models import (
     ProcessIOCounters,
     ProcessContextSwitches,
 )
+from engine import engine
 import psutil
 from time import sleep
 
@@ -206,7 +206,6 @@ def show_measurements(Session):
 
 
 def run():
-    engine = create_engine('sqlite:///data.db')
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     while True:
